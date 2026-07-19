@@ -8,7 +8,7 @@
 
 ## User-visible behavior
 
-**Verified:** A user can create a task in To Do, move it between the three columns as its status changes, and delete it. Tasks are intended to remain available after a page reload in the same browser through `localStorage`.
+**Verified:** A user can create a task in To Do, move it between the three columns as its status changes, and delete it. Tasks remain available after a page reload in the same browser through `localStorage`. The approved data, interaction, and recovery details are in [MVP data and interaction contract](decisions/mvp-data-and-interaction-contract.md).
 
 **Source:** README.md.
 
@@ -24,8 +24,8 @@
 
 **Source:** repository inspection; approved task contract.
 
-## Open questions
+## Defined MVP contract
 
-**Unknown:** The interface, concrete task fields, validation rules, ordering behavior, serialization format, storage key, and runtime technology are not documented or present in the inspected repository.
+**Verified:** The concrete task fields, validation rules, ordering behavior, serialization format, storage key, and interaction/focus rules are defined in [MVP data and interaction contract](decisions/mvp-data-and-interaction-contract.md). Runtime technology remains undecided.
 
-**Source:** repository inspection.
+**Source:** approved task contract.
