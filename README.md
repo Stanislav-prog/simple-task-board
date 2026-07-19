@@ -1,18 +1,39 @@
 # Simple Task Board
 
-**Verified:** Simple Task Board is a small Kanban-style task board with three stable statuses: `todo`, `in_progress`, and `done`.
+Simple Task Board is a browser-only Kanban-style board with three stable
+statuses: `todo`, `in_progress`, and `done`.
 
-**Source:** README.md; approved task contract.
+The responsive React application lets users create tasks in To Do, move tasks
+with explicit controls, delete tasks, and retain valid task data in the same
+browser through `localStorage`. It has no accounts, collaboration, deadlines,
+notifications, backend, or drag-and-drop interaction.
 
-## Verified scope
+## Development
 
-**Verified:** The README states that users can create tasks in To Do, move tasks between the three columns, delete tasks, and persist tasks in the browser's `localStorage`. It also states that the project has no accounts, collaboration, deadlines, notifications, or backend.
+Prerequisites:
 
-Source: README.md (the pre-existing project file).
+- Node.js 20.19+ or 22.12+
+- pnpm 10
 
-**Verified:** Repository inspection at the start of the approved documentation task verified that `README.md` was the only project file present. The repository had no implementation, configuration, build, dependency, or backend files. The documentation files linked below are the approved outputs of this task; no application implementation is being added.
+Install and start the development server:
 
-**Source:** repository inspection; approved task contract.
+```sh
+pnpm install
+pnpm dev
+```
+
+Run verification:
+
+```sh
+pnpm typecheck
+pnpm test --run
+pnpm build
+pnpm exec playwright install chromium
+pnpm test:e2e
+```
+
+The Playwright browser installation is a one-time requirement on a new
+development machine.
 
 ## Documentation
 
@@ -24,7 +45,3 @@ Source: README.md (the pre-existing project file).
 - [Task model](docs/task-model.md)
 - [Backend](docs/backend.md)
 - [Architecture decisions](docs/decisions/README.md)
-
-**Verified:** Claims about future shape or concrete implementation details are labeled `Planned` or `Unknown` in the detailed documentation.
-
-**Source:** approved task contract.

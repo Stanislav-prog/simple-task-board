@@ -1,32 +1,45 @@
-# ADR 0001: Planned implementation stack
+# ADR 0001: Implementation stack
 
-**Status:** Planned (approved for future implementation; not yet configured or verified in repository files)
+**Status:** Implemented
 
 **Date:** 2026-07-19
 
 ## Decision
 
-**Planned:** Implement the browser client in TypeScript with React. Use pnpm as the package manager and Vite as the build tooling. Use Vitest and React Testing Library for automated application tests, and Playwright for end-to-end coverage.
+The browser client is implemented in TypeScript with React. pnpm is the package
+manager and Vite is the build tooling. Vitest and React Testing Library provide
+automated application tests, and Playwright provides end-to-end coverage.
 
-This decision preserves the existing browser-only persistence boundary: tasks remain in browser `localStorage`, and no backend, API, account, or synchronization capability is introduced.
+This decision preserves the browser-only persistence boundary: tasks remain in
+browser `localStorage`, and no backend, API, account, or synchronization
+capability is introduced.
 
 ## Context
 
-**Verified:** The repository currently has documentation only: it contains no application source, package manifest, dependency lockfile, build configuration, or test configuration. The only verified technology boundary is browser `localStorage`, and the documented product excludes a backend.
+The repository originally contained documentation only. Issue #6 approved the
+first application vertical slice using this stack while preserving the
+`localStorage` boundary and excluding a backend.
 
-The project needs an approved, coherent future implementation stack without representing it as already installed or configured.
+The package manifest, lockfile, application source, and test configuration now
+make the selected stack verifiable.
 
 ## Rationale and tradeoffs
 
-- TypeScript is selected to make task and persistence data contracts explicit as implementation begins; it adds compile-time and configuration overhead compared with plain JavaScript.
-- React is selected for a small interactive task-board client with reusable UI boundaries; alternatives such as vanilla DOM code or another UI framework would reduce or change framework dependencies, but are not selected for this planned baseline.
-- pnpm is selected for dependency management and lockfile-based reproducibility; npm and Yarn were alternatives, but are not selected for this planned baseline.
-- Vite is selected for a lightweight client development and build workflow; alternatives such as a bespoke bundler configuration or another build framework are not selected.
-- Vitest and React Testing Library are selected for focused automated tests of application behavior and rendered UI; Playwright is selected to cover browser-level end-to-end workflows. These tools add setup and maintenance work, but distinguish fast application tests from end-to-end coverage.
+- TypeScript makes task and persistence contracts explicit; it adds compile-time
+  and configuration overhead compared with plain JavaScript.
+- React supports a small interactive task-board client with reusable UI
+  boundaries.
+- pnpm provides lockfile-based dependency reproducibility.
+- Vite provides the development server and production build.
+- Vitest and React Testing Library cover focused application behavior, while
+  Playwright covers a browser-level user workflow.
 
 ## Consequences
 
-- Future implementation and configuration should align with these choices unless a later approved decision changes them.
-- Exact package versions, scripts, browser-support policy, test scope, and tool configuration remain unspecified until implementation work defines them.
-- Until package and configuration files exist, no install, development, build, or test command is verified to work.
-- This ADR does not change the localStorage/no-backend product boundary or add application code.
+- Implementation and configuration align with these choices unless a later
+  approved decision changes them.
+- Exact dependency resolutions are recorded in `pnpm-lock.yaml`; developer
+  commands are recorded in `package.json` and `docs/development.md`.
+- The browser baseline requires `crypto.randomUUID()`; no identifier fallback
+  is implemented.
+- This ADR does not change the `localStorage`/no-backend product boundary.

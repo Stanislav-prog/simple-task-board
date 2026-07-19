@@ -1,35 +1,52 @@
 # Development
 
-## Current state
+## Prerequisites
 
-**Verified:** The repository contains no application implementation, configuration, build, dependency, or backend files. Therefore there is no verified development workflow.
+- Node.js 20.19+ or 22.12+
+- pnpm 10
 
-**Source:** repository inspection.
+The repository records the pnpm release in `package.json`.
 
 ## Commands
 
-**Verified:** No install, run, build, test, lint, format, or deployment commands are documented or discoverable in the inspected repository.
+Install dependencies:
 
-**Source:** repository inspection.
+```sh
+pnpm install
+```
 
-## Planned tooling guidance
+Start the Vite development server:
 
-**Planned:** Future implementation will use pnpm to manage dependencies, TypeScript with React for the client, and Vite for local development and production builds.
+```sh
+pnpm dev
+```
 
-**Planned:** Once package configuration is added, its scripts should expose the project’s install, development, build, and test workflows. This documentation does not assert command names or that any commands currently work.
+Run the TypeScript check, unit/UI suite, and production build:
 
-**Planned:** Future test setup will use Vitest and React Testing Library for automated application tests, with Playwright providing end-to-end coverage.
+```sh
+pnpm typecheck
+pnpm test --run
+pnpm build
+```
 
-**Source:** [ADR 0001: Planned implementation stack](decisions/0001-planned-implementation-stack.md).
+Install the Playwright Chromium runtime once on a new machine, then run the
+end-to-end suite:
 
-## Change guidance
+```sh
+pnpm exec playwright install chromium
+pnpm test:e2e
+```
 
-**Planned:** Any future implementation should preserve the three stable statuses, create tasks in `todo`, support status changes and deletion, and keep persistence within browser `localStorage` unless an approved task changes that boundary.
-
-**Source:** approved task contract; README.md.
+`pnpm test` starts Vitest in watch mode for development. The configured
+Playwright command starts and stops the Vite development server automatically.
 
 ## Documentation language
 
-**Verified:** Documentation produced for this task is English UTF-8. No localization catalogs are added.
+Documentation and application-owned UI copy are English UTF-8. No localization
+catalogs are present.
 
-**Source:** approved task contract.
+## Scope guidance
+
+Changes should preserve the three stable statuses, create tasks in `todo`,
+support explicit status movement and immediate deletion, and keep persistence
+within browser `localStorage` unless an approved task changes that boundary.

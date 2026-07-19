@@ -1,29 +1,23 @@
 # Technical stack
 
-## Verified
+## Implemented stack
 
-**Verified:** The only technology named by the existing project documentation is the browser's `localStorage` API as the persistence boundary.
+- TypeScript and React for the browser client.
+- pnpm for dependency management.
+- Vite for development and production builds.
+- Vitest and React Testing Library for unit and UI tests.
+- Playwright with Chromium for browser-level end-to-end coverage.
+- Browser `localStorage` for persistence.
 
-**Source:** README.md.
+Exact dependency resolutions are recorded in `pnpm-lock.yaml`.
 
-## Approved planned stack
+## Runtime baseline
 
-**Planned:** The approved implementation language is TypeScript and the UI framework is React.
+The development toolchain requires Node.js 20.19+ or 22.12+ as required by
+Vite 7. The application targets modern browsers that provide
+`crypto.randomUUID()` and `localStorage`. No identifier fallback is required
+for this baseline.
 
-**Planned:** The approved package manager is pnpm and the approved build tooling is Vite.
-
-**Planned:** The approved test tooling is Vitest, React Testing Library, and Playwright for end-to-end coverage.
-
-**Source:** [ADR 0001: Planned implementation stack](decisions/0001-planned-implementation-stack.md).
-
-## Unknown
-
-**Unknown:** No dependency set, formatter, linter, browser support policy, deployment target, exact tool versions, or tool configuration can be verified. No package or configuration files were present during repository inspection.
-
-**Source:** repository inspection.
-
-## Policy
-
-**Planned:** These approved choices guide future implementation. They must not be described as verified implementation facts until the corresponding repository files are present.
-
-**Source:** approved task contract.
+`localStorage` can still be unavailable because of browser privacy,
+permissions, or quota conditions; the application remains usable in memory and
+shows a warning in those cases.
