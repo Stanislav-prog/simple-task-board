@@ -8,7 +8,7 @@
 
 ## Conceptual flow
 
-**Planned:** A user action creates a task with canonical status `todo`; a status action changes that status to `todo`, `in_progress`, or `done`; a delete action removes the task. The current status determines the column in which the task is shown.
+**Verified:** A user action creates a task with canonical status `todo`; an explicit status action changes that status to `todo`, `in_progress`, or `done`; and a delete action removes the task. The current status determines the column in which the task is shown. The interaction, keyboard, focus, ordering, persistence, and recovery requirements are defined in [MVP data and interaction contract](decisions/mvp-data-and-interaction-contract.md).
 
 **Source:** approved task contract; README.md.
 
@@ -20,7 +20,7 @@
 
 ## Not established
 
-**Unknown:** The repository does not establish module structure, component boundaries, event mechanism, state-management library, persistence adapter, or error-handling strategy.
+**Unknown:** The repository does not establish module structure, component boundaries, event mechanism, rendering approach, state-management library, or persistence adapter. MVP error handling and recovery behavior are defined in [MVP data and interaction contract](decisions/mvp-data-and-interaction-contract.md).
 
 **Source:** repository inspection.
 

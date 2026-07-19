@@ -24,8 +24,14 @@
 
 **Source:** ADR 0001.
 
+### MVP data and interaction contract
+
+**Verified:** The approved task schema, validation, deterministic ordering, keyboard interaction and focus behavior, and local-storage recovery contract are recorded in [MVP data and interaction contract](mvp-data-and-interaction-contract.md).
+
+**Source:** approved task contract.
+
 ## Unrecorded decisions
 
-**Unknown:** Concrete dependencies, tool versions and configuration, task schema, validation, ordering, serialization, storage key, backend, authentication, and deployment decisions have not been made or are not present in the repository.
+**Unknown:** Concrete dependencies, tool versions and configuration, backend, authentication, and deployment decisions have not been made or are not present in the repository. The concrete MVP task schema, validation, ordering, serialization, and storage key are defined in [MVP data and interaction contract](mvp-data-and-interaction-contract.md).
 
 **Source:** repository inspection; approved task contract.

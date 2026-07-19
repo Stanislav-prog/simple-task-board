@@ -2,13 +2,13 @@
 
 ## Conceptual model
 
-**Planned:** A task has three conceptual parts:
+**Verified:** A task has three conceptual parts:
 
 - **Identity:** a way to distinguish one task from another.
 - **User-visible content:** the information shown to the user for the task.
 - **Canonical status:** one of `todo`, `in_progress`, or `done`.
 
-**Source:** approved task contract.
+**Source:** approved task contract; [MVP data and interaction contract](decisions/mvp-data-and-interaction-contract.md).
 
 ## Lifecycle
 
@@ -18,9 +18,9 @@
 
 ## Concrete schema
 
-**Unknown:** Concrete field names, identifier type and generation, required fields, validation constraints, maximum lengths, ordering rules, serialization shape, and storage keys are not verified. No implementation or schema files are present.
+**Verified:** A serialized task has exactly `id`, `title`, `status`, and `createdAt`. Titles are trimmed and must be 1-120 characters; statuses are canonical; identifiers are non-empty envelope-unique strings; and timestamps are valid ISO-8601 UTC strings that parse to finite instants. Ordering is `createdAt` descending, then serialized `id` lexical descending. See [MVP data and interaction contract](decisions/mvp-data-and-interaction-contract.md) for the complete validation and generation contract.
 
-**Source:** repository inspection; approved task contract.
+**Source:** approved task contract.
 
 ## Status vocabulary
 
