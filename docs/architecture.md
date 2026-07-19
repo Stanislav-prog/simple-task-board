@@ -12,9 +12,15 @@
 
 **Source:** approved task contract; README.md.
 
+## Planned client boundary
+
+**Planned:** The browser client will be implemented with React and TypeScript. It will render the task board and keep task persistence within browser `localStorage`; it does not introduce a backend, API, account, or synchronization boundary.
+
+**Source:** [ADR 0001: Planned implementation stack](decisions/0001-planned-implementation-stack.md); README.md.
+
 ## Not established
 
-**Unknown:** The repository does not establish a UI framework, module structure, component boundaries, event mechanism, rendering approach, state-management library, persistence adapter, or error-handling strategy.
+**Unknown:** The repository does not establish module structure, component boundaries, event mechanism, state-management library, persistence adapter, or error-handling strategy.
 
 **Source:** repository inspection.
 

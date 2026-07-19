@@ -8,9 +8,19 @@
 
 ## Commands
 
-**Unknown:** No install, run, build, test, lint, format, or deployment commands are documented or discoverable in the inspected repository. This document intentionally does not invent commands.
+**Verified:** No install, run, build, test, lint, format, or deployment commands are documented or discoverable in the inspected repository.
 
 **Source:** repository inspection.
+
+## Planned tooling guidance
+
+**Planned:** Future implementation will use pnpm to manage dependencies, TypeScript with React for the client, and Vite for local development and production builds.
+
+**Planned:** Once package configuration is added, its scripts should expose the project’s install, development, build, and test workflows. This documentation does not assert command names or that any commands currently work.
+
+**Planned:** Future test setup will use Vitest and React Testing Library for automated application tests, with Playwright providing end-to-end coverage.
+
+**Source:** [ADR 0001: Planned implementation stack](decisions/0001-planned-implementation-stack.md).
 
 ## Change guidance
 
